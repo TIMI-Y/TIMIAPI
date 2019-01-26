@@ -1,0 +1,340 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+<title>默笙后台管理系统</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/public/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+<!-- Custom Css -->
+<link rel="stylesheet" type="text/css" href="/public/static/b/css/demo.css">
+<link rel="stylesheet" type="text/css" href="/public/static/b/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" href="/public/static/assets/css/main.css">
+<link rel="stylesheet" href="/public/static/assets/css/color_skins.css">
+<link rel="stylesheet" type="text/css" href="/public/static/b/css/demo.css">
+
+<link rel="stylesheet" href="/public/static/assets/plugins/sweetalert/sweetalert.css"/>
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="/public/static/assets/images/logo.png" width="48" height="48" alt="Oreo"></div>
+        <p>请稍后...</p>        
+    </div>
+</div>
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html"><img src="/public/static/assets/images/logo.png" width="30" alt="Oreo"><span class="m-l-10">Mosheng</span></a>
+            </div>
+        </li>
+        <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
+       
+       
+            
+        <li class="float-right">
+            <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            <a href="{:url('index/loginout')}" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Mosheng</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>User</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info">
+                            <div class="image"><a href="profile.html"><img src="/public/static/assets/images/profile_av.jpg" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>mosheng</h4>
+                                <small>屌丝</small>                        
+                            </div>
+                            <!-- <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
+                            <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
+                            <a title="instagram" href="#"><i class="zmdi zmdi-instagram"></i></a>   -->                          
+                        </div>
+                    </li>
+                    <li class="header">本站列表</li>
+                    <li> <a href="{:url('index/index')}" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>仪表盘</span></a>
+                        <!-- class="active open" -->
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle" ><i class="zmdi zmdi-apps"></i><span>API管理</span> </a>
+                        <ul class="ml-menu" >
+                            <li><a href="{:url('index/addapi')}">新增API</a></li>
+                            <li><a href="{:url('index/apilist')}">API列表</a></li>
+                            <li><a href="{:url('index/madeapi')}">API制作教程</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>系统设置</span> </a>
+                        <ul class="ml-menu">
+                            <li class="active"> <a href="{:url('system/index')}">站点设置</a></li>
+                            <li> <a href="{:url('system/upinfo')}">修改信息</a></li>
+                            <li> <a href="{:url('system/findpwd')}">忘记密码？</a></li>
+                            <li> <a href="https://jq.qq.com/?_wv=1027&k=5Jefzsn" target="_blank">官方QQ群</a></li>
+                        </ul>
+                    </li>
+                    <li class="header">额外功能</li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>系统反馈</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="{:url('other/apineed')}">提交一个API需求</a> </li>
+                            <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3494490&site=qq&menu=yes" target="_blank">向作者提问</a> </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane stretchLeft" id="user">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info m-b-20 p-b-15">
+                            <div class="image"><a href="#"><img src="/public/static/assets/images/profile_av.jpg" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>Mosheng</h4>
+                                <small>PHPer</small>                        
+                            </div>
+                            
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <small class="text-muted">Email address: </small>
+                        <p>asss@tom.com</p>
+                        <hr>
+                        <small class="text-muted">QQ: </small>
+                        <p>3494490</p>
+                        <small class="text-muted">QQ群: </small>
+                        <p>484395502</p>
+                        <hr>
+                                             
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+       
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slim_scroll">
+                        
+                <div class="card">
+                    <h6>皮肤</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple" class="active">
+                            <div class="purple"></div>
+                        </li>                   
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>                    
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>                    
+                        </li>
+                    </ul>                    
+                </div>
+               
+                <div class="card theme-light-dark">
+                    <h6>左侧菜单皮肤</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">浅色</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">黑色</button>
+                    <button class="m_img_btn btn btn-primary btn-round btn-block">带图像</button>                    
+                </div>                
+               
+            </div>                
+        </div>       
+        
+        
+    </div>
+</aside>
+
+<!-- Chat-launcher -->
+
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>站点设置
+                    <small>在此编辑您网站的基本信息</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Mosheng</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">系统设置</a></li>
+                    <li class="breadcrumb-item active">站点设置</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- Basic Validation -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>一句话公告</strong> </h2>
+                        
+                    </div>
+                    <div class="body">
+                        <div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="gg" placeholder="首页一句话公告展示" value="{$notice.notice}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="url" placeholder="公告链接地址，默认为“#”" value="{$notice.url }" >
+                            </div>
+                            </div><button id="ggup" class="btn btn-raised btn-primary btn-round waves-effect" >提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>基本信息</strong> </h2>
+                        
+                    </div>
+                    <div class="body">
+                        <div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="title" placeholder="站点标题" value="{$info.title}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="ms" placeholder="站点描述" value="{$info.description}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="keywords" placeholder="站点关键字，多个请用英文“,”隔开" value="{$info.keywords}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="logo" placeholder="Logo" value="{$info.logo}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="bq" placeholder="底部版权" value="{$info.copyright}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="beian" placeholder="备案" value="{$info.beian}" >
+                            </div>
+                            <div class="form-group form-float">
+                                <font style="vertical-align: inherit;">赞助图片：<span style="color:red">请直接替换掉<code>{$info.zanzu}</code>目录下的图片</span>
+                            </div>
+                            <img src="{$info.zanzu}">
+                            <div class="form-group form-float">
+                                <textarea id="editor-zh" name="qqcssm" rows="10">{$info.about}</textarea>
+                            </div>
+                            </div><button id="infoup" class="btn btn-raised btn-primary btn-round waves-effect" >提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Jquery Core Js --> 
+<script src="/public/static/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="/public/static/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="/public/static/assets/plugins/jquery-validation/jquery.validate.js"></script> <!-- Jquery Validation Plugin Css --><script src="/public/static/assets/plugins/jquery-steps/jquery.steps.js"></script> <!-- JQuery Steps Plugin Js --> 
+<script src="/public/static/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js --> 
+<script src="/public/static/assets/js/pages/forms/form-validation.js"></script> 
+<script src="/public/static/assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js --> 
+<script  type="text/javascript" src="/public/static/b/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/static/b/js/bootstrap-markdown.js"></script>
+<script type="text/javascript" src="/public/static/b/locale/bootstrap-markdown.zh.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $("#ggup").click(function () {
+        var e = 0;
+        var gg = $("#gg").val();
+        var url = $("#url").val();
+        if (gg == "") {
+            swal("An Error", "公告不能为空", "error");
+            return false;
+        }
+        if (e == 0) {
+            $.post("{:url('system/index')}", {gg:gg,url:url}, function (data) {
+                if (data.code == '1') {
+
+                    swal("Nice!!!",data.msg, "success");//layer.msg('不开心。。', {icon: 5});
+                    window.location.href = data.url;
+                } else {
+                   
+                    swal("An Error", data.msg, "error");
+                }
+            })
+        }
+
+    })
+</script>
+<script type="text/javascript">
+    $("#infoup").click(function () {
+        var e = 0;
+        var tt = $("#title").val();
+        var ms = $("#ms").val();
+        var kw = $("#keywords").val();
+        var lo = $("#logo").val();
+        var bq = $("#bq").val();
+        var ba = $("#beian").val();
+        var ab = $("#editor-zh").val();
+        if (gg == "") {
+            swal("An Error", "公告不能为空", "error");
+            return false;
+        }
+        if (e == 0) {
+            $.post("{:url('system/ajaxupinfo')}", {tt:tt,ms:ms,kw:kw,lo:lo,bq:bq,ba:ba,ab:ab}, function (data) {
+                if (data.code == '1') {
+
+                    swal("Nice!!!",data.msg, "success");//layer.msg('不开心。。', {icon: 5});
+                    window.location.href = data.url;
+                } else {
+                   
+                    swal("An Error", data.msg, "error");
+                }
+            })
+        }
+
+    })
+</script>
+</html>

@@ -1,0 +1,472 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+<title>默笙后台管理系统</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/public/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+<!-- Custom Css -->
+<link rel="stylesheet" href="/public/static/assets/css/main.css">
+<link rel="stylesheet" href="/public/static/assets/css/color_skins.css">
+<link rel="stylesheet" type="text/css" href="/public/static/b/css/demo.css">
+<link rel="stylesheet" type="text/css" href="/public/static/b/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" href="/public/static/assets/plugins/sweetalert/sweetalert.css"/>
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="/public/static/assets/images/logo.png" width="48" height="48" alt="Oreo"></div>
+        <p>请稍后...</p>        
+    </div>
+</div>
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html"><img src="/public/static/assets/images/logo.png" width="30" alt="Oreo"><span class="m-l-10">Mosheng</span></a>
+            </div>
+        </li>
+        <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
+       
+       
+            
+        <li class="float-right">
+            <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            <a href="{:url('index/loginout')}" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Mosheng</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>User</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info">
+                            <div class="image"><a href="profile.html"><img src="/public/static/assets/images/profile_av.jpg" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>mosheng</h4>
+                                <small>屌丝</small>                        
+                            </div>
+                            <!-- <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
+                            <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
+                            <a title="instagram" href="#"><i class="zmdi zmdi-instagram"></i></a>   -->                          
+                        </div>
+                    </li>
+                    <li class="header">本站列表</li>
+                    <li> <a href="{:url('index/index')}" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>仪表盘</span></a>
+                        <!-- class="active open" -->
+                    </li>
+                    <li class="active open"> <a href="javascript:void(0);" class="menu-toggle" ><i class="zmdi zmdi-apps"></i><span>API管理</span> </a>
+                        <ul class="ml-menu" >
+                            <li class="active"><a href="{:url('index/addapi')}">新增API</a></li>
+                            <li><a href="{:url('index/apilist')}">API列表</a></li>
+                            <li><a href="{:url('index/madeapi')}">API制作教程</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>系统设置</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="{:url('system/index')}">站点设置</a></li>
+                            <li> <a href="{:url('system/upinfo')}">修改信息</a></li>
+                            <li> <a href="{:url('system/findpwd')}">忘记密码？</a></li>
+                            <li> <a href="https://jq.qq.com/?_wv=1027&k=5Jefzsn" target="_blank">官方QQ群</a></li>
+                        </ul>
+                    </li>
+                    <li class="header">额外功能</li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>系统反馈</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="{:url('other/apineed')}">提交一个API需求</a> </li>
+                            <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3494490&site=qq&menu=yes" target="_blank">向作者提问</a> </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane stretchLeft" id="user">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info m-b-20 p-b-15">
+                            <div class="image"><a href="#"><img src="/public/static/assets/images/profile_av.jpg" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>Mosheng</h4>
+                                <small>PHPer</small>                        
+                            </div>
+                            
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <small class="text-muted">Email address: </small>
+                        <p>asss@tom.com</p>
+                        <hr>
+                        <small class="text-muted">QQ: </small>
+                        <p>3494490</p>
+                        <small class="text-muted">QQ群: </small>
+                        <p>484395502</p>
+                        <hr>
+                                             
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+       
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slim_scroll">
+                        
+                <div class="card">
+                    <h6>皮肤</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple" class="active">
+                            <div class="purple"></div>
+                        </li>                   
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>                    
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>                    
+                        </li>
+                    </ul>                    
+                </div>
+               
+                <div class="card theme-light-dark">
+                    <h6>左侧菜单皮肤</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">浅色</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">黑色</button>
+                    <button class="m_img_btn btn btn-primary btn-round btn-block">带图像</button>                    
+                </div>                
+               
+            </div>                
+        </div>       
+        
+        
+    </div>
+</aside>
+
+<!-- Chat-launcher -->
+
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>新增API
+                    <small>在此页面新增一个API</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Mosheng</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">API管理</a></li>
+                    <li class="breadcrumb-item active">新增API</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- Basic Validation -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>表单</strong> </h2>
+                        
+                    </div>
+                    <div class="body">
+                        <div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" id="apiname" placeholder="API名称" name="name" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" placeholder="API简介" id="apijj">
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" placeholder="关键词，多个关键词请用英文逗号例如“,”隔开" id="apikw">
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" placeholder="请求地址，例如：https://api.tecms.net/api/qq.php" id="apiadress" >
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" placeholder="返回格式，例如：json" id="apifhgs">
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" placeholder="请求方式，例如：GET/POST" id="apiqqfs">
+                            </div>
+                            <div class="form-group form-float">
+                                <input type="text" class="form-control" placeholder="请求示例,例如：https://api.tecms.net/api/qq.php?qq=3494490" id="apiqqsl">
+                            </div>
+                             <font style="vertical-align: inherit;">请求参数说明：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！</span>在此快速集成了Demo，方便用户填写，<code>table</code>的<code>class</code>不能没有不能修改，否则前台会展示异常) 备份：<code> class="api-table" border="0" cellspacing="0" cellpadding="0"</code></font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh" name="qqcssm" rows="10">
+                                <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr class="title">
+                                            <th width="20"></th>
+                                            <th width="100">名称</th>
+                                            <th width="60">必填</th>
+                                            <th width="80">类型</th>
+                                            <th>说明</th>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td class="url">qid</td>
+                                            <td class="url">是</td>
+                                            <td class="url">string</td>
+                                            <td>输入群号，如：484395502</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </textarea>
+                            </div>
+                            <font style="vertical-align: inherit;">返回参数说明：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！</span>在此快速集成了Demo，方便用户填写，<code>table</code>的<code>class</code>不能没有不能修改，否则前台会展示异常) 备份：<code> class="api-table" border="0" cellspacing="0" cellpadding="0"</code></font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh1" name="fhcssm" rows="10">
+                                <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr class="title">
+                                            <th width="20"></th>
+                                            <th width="100">名称</th>
+                                            <th width="80">类型</th>
+                                            <th>说明</th>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td class="url">code</td>
+                                            <td class="url">string</td>
+                                            <td>返回的状态码</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td class="url">msg</td>
+                                            <td class="url">string</td>
+                                            <td>返回错误提示信息！</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </textarea>
+                            </div>
+                            <font style="vertical-align: inherit;">返回示例说明：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！</span>这里可直接粘贴格式化好的Json数据</font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh2" name="fhsl" rows="10"></textarea>
+                            </div>
+                            <font style="vertical-align: inherit;">服务级错误码参照(error_code)：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！</span>在此快速集成了Demo，方便用户填写，<code>table</code>的<code>class</code>不能没有不能修改，否则前台会展示异常) 备份：<code> class="api-table" border="0" cellspacing="0" cellpadding="0"</code></font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh3" name="fwjczm" rows="10">
+                                <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <th width="20"> &nbsp; </th>
+                                            <th width="200"> 错误码 </th>
+                                            <th> 说明 </th>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td class="url">201201</td>
+                                            <td>QQ群号不能为空！</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </textarea>
+                            </div>
+                            <font style="vertical-align: inherit;">系统级错误码参照：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！</span>在此快速集成了Demo，方便用户填写，<code>table</code>的<code>class</code>不能没有不能修改，否则前台会展示异常) 备份：<code> class="api-table" border="0" cellspacing="0" cellpadding="0"</code></font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh4" name="xtjczm" rows="10">
+                                <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <th width="20"> &nbsp; </th>
+                                            <th width="200"> 错误码 </th>
+                                            <th> 说明 </th>
+                                            <th width="150"> 旧版本（resultcode） </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </textarea>
+                            </div>
+                             <font style="vertical-align: inherit;">错误码格式说明（示例：200201）：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！</span>在此快速集成了Demo，方便用户填写，<code>table</code>的<code>class</code>不能没有不能修改，否则前台会展示异常) 备份：<code> class="api-table" border="0" cellspacing="0" cellpadding="0"</code></font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh5" name="cwmgs" rows="10">
+                                <table class="api-table" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <th width="20"> &nbsp; </th>
+                                            <th width="200"> 2 </th>
+                                            <th width="200"> 002 </th>
+                                            <th> 01 </th>
+                                        </tr>
+                                        <tr>
+                                            <td> &nbsp; </td>
+                                            <td> 服务级错误（1为系统级错误） </td>
+                                            <td> 服务模块代码(即数据ID) </td>
+                                            <td> 具体错误代码 </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </textarea>
+                            <font style="vertical-align: inherit;">PHP演示：<span style="color:red">(由于技术性原因，本编辑器不支持全屏，勿点！)</span>请将您的演示代码放入标签中</font>
+                            <div class="form-group form-float">
+                            <textarea id="editor-zh6" name="php" rows="10"><pre><code></code></pre></textarea>
+                            </div>
+                            <button id="add" class="btn btn-raised btn-primary btn-round waves-effect" >提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Jquery Core Js --> 
+<script src="/public/static/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="/public/static/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="/public/static/assets/plugins/jquery-validation/jquery.validate.js"></script> <!-- Jquery Validation Plugin Css --><script src="/public/static/assets/plugins/jquery-steps/jquery.steps.js"></script> <!-- JQuery Steps Plugin Js --> 
+<script src="/public/static/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js --> 
+<script src="/public/static/assets/js/pages/forms/form-validation.js"></script> 
+<script  type="text/javascript" src="/public/static/b/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/public/static/b/js/bootstrap-markdown.js"></script>
+<script type="text/javascript" src="/public/static/b/locale/bootstrap-markdown.zh.js"></script>
+<script src="/public/static/assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js --> 
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh1").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh2").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh3").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh4").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh5").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#editor-zh6").markdown({language:'zh'})
+    })
+</script>
+<script type="text/javascript">
+    $("#add").click(function () {
+        var e = 0;
+        var apiname = $("#apiname").val();
+        var apijj = $("#apijj").val();
+        var apikw = $("#apikw").val();
+        var apiadress = $("#apiadress").val();
+        var apifhgs = $("#apifhgs").val();
+        var apiqqfs = $("#apiqqfs").val();
+        var apiqqsl = $("#apiqqsl").val();
+        
+        var qqcssm = $("#editor-zh").val();
+        var fhcssm = $("#editor-zh1").val();
+        var fhsl = $("#editor-zh2").val();
+        var fwjczm = $("#editor-zh3").val();
+        var xtjczm = $("#editor-zh4").val();
+        var cwmgs = $("#editor-zh5").val();
+        var php = $("#editor-zh6").val();
+        //var qqcssm =document.getElementsByName("qqcssm");
+        // var fhcssm =document.getElementsByName("fhcssm");
+        // var fhsl =document.getElementsByName("fhsl");
+        // var fwjczm =document.getElementsByName("fwjczm");
+        // var xtjczm =document.getElementsByName("xtjczm");
+        // var cwmgs =document.getElementsByName("cwmgs");
+        // var php =document.getElementsByName("php");
+        if (apiname == "") {
+            swal("An Error", "请输入API名称", "error");
+            return false;
+        }
+        if (apijj == "") {
+            swal("An Error", "请输入API简介", "error");
+            return false;
+        }
+        if (apikw == "") {
+            swal("An Error", "请输入API关键词", "error");
+            return false;
+        }
+        if (apiadress == "") {
+            swal("An Error", "请输入API请求地址", "error");
+            return false;
+        }
+        if (apifhgs == "") {
+            swal("An Error", "请输入API返回格式", "error");
+            return false;
+        }
+        if (apiqqfs == "") {
+            swal("An Error", "请输入API请求方式", "error");
+            return false;
+        }
+        if (apiqqsl == "") {
+            swal("An Error", "请输入API请求示例", "error");
+            return false;
+        }
+        if (e == 0) {
+            $.post("{:url('index/addapi')}", {apim:apiname,apijj:apijj,apigjc:apikw,apiqqdz:apiadress,apifhgs:apifhgs,apiqqfs:apiqqfs,apiqqsl:apiqqsl,qqcssm:qqcssm,fhcssm:fhcssm,fhsl:fhsl,fwjczm:fwjczm,xtjczm:xtjczm,cwmgs:cwmgs,php:php}, function (data) {
+                if (data.code == '1') {
+
+                    swal("Nice!!!",data.msg, "success");//layer.msg('不开心。。', {icon: 5});
+                    window.location.href = data.url;
+                } else {
+                   
+                    swal("An Error", data.msg, "error");
+                }
+            })
+        }
+
+    })
+</script>
+</html>

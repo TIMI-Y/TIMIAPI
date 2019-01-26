@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{$api.api_name} - {$info.title}</title>
+    <meta name="description" content="{$api.api_introduce}">
+    <meta name="keywords" content="{$api.api_keywords}">
+    <meta name="author" content="默笙">
+    <link href="/public/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/public/static/css/site.min_1.css" rel="stylesheet">
+
+
+<body class="home-template">
+    <header class="site-header">
+        <nav class="navbar navbar-static-top main-navbar" id="top">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3>{$info.logo}</h3>
+                </div>
+                <nav id="bs-navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        {volist name="header" id='he'}
+                        <li><a href="{$he.url}" target="_blank">{$he.title}</a></li>
+                       
+                        {/volist}
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+        <div class="container jumbotron">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>{$api.api_name}<img src="static/picture/uomgapi.svg" alt="UomgAPI logo" class="hidden"></h1>
+                    <p>{$api.api_introduce}</p>
+                </div>
+            </div>
+        </div>
+        <div class="package-info well well-md text-center">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="#api" data-toggle="tab">API文档</a></li>
+                    <li><a href="#code" data-toggle="tab">错误码参照</a></li>
+                    <li><a href="#demo" data-toggle="tab">示例代码</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="container tab-content" id="myTabContent">
+        <article class="markdown-body tab-pane fade in active" id="api">
+            <div class="api-sub-content">
+                <div class="simpleline"><strong>接口地址：</strong><span class="url">{$api.api_adress}</span></div>
+                <div class="simpleline"><strong>返回格式：</strong><span class="url">{$api.return_format}</span></div>
+                <div class="simpleline"><strong>请求方式：</strong><span class="url">{$api.request_mode}</span></div>
+                <div class="simpleline"><strong>请求示例：</strong><span class="url">{$api.request_demo}</span></div>
+                <div class="simpleTable">
+                    <p class="linep">请求参数说明：</p>
+                    {$api.request_parameter}
+                </div>
+                <div class="simpleTable">
+                    <p class="linep">返回参数说明：</p>
+                    {$api.return_parameter}
+                </div>
+                <div class="simpleTable">
+                    <p class="linep">返回示例：</p>
+                    <div class="prediv">
+                        <pre>{$api.return_demo}</pre>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="markdown-body tab-pane fade" id="code">
+            <div class="api-sub-content">
+                <div class="simpleTable">
+                    <p class="linep"> 服务级错误码参照(error_code)： </p>
+                    {$api.error_code}
+                </div>
+                <div class="simpleTable">
+                    <p class="linep"> 系统级错误码参照： </p>
+                    {$api.error_code_demo}
+                </div>
+                <div class="simpleTable">
+                    <p class="linep"> 错误码格式说明（示例：200201）： </p>
+                    {$api.error_code_explain}
+                </div>
+            </div>
+        </article>
+        <article class="markdown-body tab-pane fade" id="demo">
+            <div class="simpleTable">
+                <p class="linep">PHP演示：</p>
+                <div class="prediv">
+                    {$api.php_demo}
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer id="footer" class="footer hidden-print">
+        <div class="container">
+            <div class="row">
+                <div class="footer-about col-md-6 col-sm-12" id="about">
+                    {$info.about}
+                </div>
+                <div class="footer-links col-md-4 col-sm-12">
+                    <h4>友情链接</h4>
+                    <ul class="list-unstyled list-inline">
+                        {volist name="link" id='lk'}
+                        <li><a href="{$lk.url}" target="_blank">{$lk.title}</a></li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="footer-techs col-md-2 col-sm-12">
+                    <h4>赞助我们</h4>
+                     <img src="{$info.zanzu}" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+       <div class="copy-right">
+            <span>{$info.copyright}</span><a href="http://www.miibeian.gov.cn/" target="_blank">{$info.beian}</a><span></span>
+        </div>
+    </footer><a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <script src="/public/static/js/jquery.min.js"></script>
+    <script src="/public/static/js/bootstrap.min.js"></script>
+    <script src="/public/static/js/geopattern.min.js"></script>
+    <script src="/public/static/js/clipboard.min.js"></script>
+    <script src="/public/static/js/localforage.min.js"></script>
+    <script src="/public/static/js/lodash.min.js"></script>
+    <script src="/public/static/js/site.min.js"></script>
+</body>
+
+</html>

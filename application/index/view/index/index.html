@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{$info.title}</title>
+    <meta name="description" content="{$info.description}">
+    <meta name="keywords" content="{$info.keywords}">
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link href="/public/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/public/static/css/site.min.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png?1530947420053">
+    
+</head>
+
+<body class="home-template">
+    <header class="site-header">
+        <nav class="navbar navbar-static-top main-navbar" id="top">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3>{$info.logo}</h3>
+                </div>
+                <nav id="bs-navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                    	{volist name="header" id='he'}
+                        <li><a href="{$he.url}" target="_blank">{$he.title}</a></li>
+                       <!--  <li><a href="http://www.aeink.com/" target="_blank">博客</a></li>
+                        <li><a href="#about" onclick="_hmt.push(['_trackEvent', 'main-navbar', 'click', 'about'])">关于</a></li> -->
+                        {/volist}
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+        <div class="container jumbotron">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>{$info.logo}<img src="static/picture/MoshengAPI.svg" alt="MoshengAPI logo" class="hidden"></h1>
+                    <p>
+                        稳定、快速、免费的 API 接口服务<br>
+                        <span class="package-amount">共收录了 <strong>{$count}</strong> 个接口项目</span>
+                    </p>
+                    <div class="search-wraper" role="search" style="/*display: none;*/">
+                        <div class="form-group">
+                            <form action="{:url('index/serch')}" method="GET">
+                            <input class="form-control search clearable" placeholder="搜索API名称，例如：短网址" name="key"> 
+                            <i class="fa fa-search"></i></div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container protocal-notice hidden-xs">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pull-right">
+                    <a href="{$notice.url}" target="_blank">{$notice.notice}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="packages-list-container" id="all-packages">
+        <div class="container">
+            <div class="list-group packages" id="common-packages">
+            	{volist name="api" id='api'}
+                <a href="/apidetail/{$api.id}.html" class="package list-group-item" target="_blank" alt="{$api.api_name}">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="package-name">{$api.api_name}</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p class="package-description">{$api.api_introduce}</p>
+                        </div>
+                        <div class="package-extra-info col-md-9 col-md-offset-3 col-xs-12">
+                            <span><i class="fa fa-star"></i> {$api.api_view}</span>
+                        </div>
+                    </div>
+                </a>
+                {/volist}
+            </div>
+            <div class="list-group packages" id="search-results" style="display: none">
+            </div>
+        </div>
+    </main>
+    <footer id="footer" class="footer hidden-print">
+        <div class="container">
+            <div class="row">
+                <div class="footer-about col-md-6 col-sm-12" id="about">
+                    {$info.about}
+                </div>
+                <div class="footer-links col-md-4 col-sm-12">
+                    <h4>友情链接</h4>
+                    <ul class="list-unstyled list-inline">
+                    	{volist name="link" id='lk'}
+                        <li><a href="{$lk.url}" target="_blank">{$lk.title}</a></li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="footer-techs col-md-2 col-sm-12">
+                    <h4>赞助我们</h4>
+                    <img src="{$info.zanzu}" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <span>{$info.copyright}</span><a href="http://www.miibeian.gov.cn/" target="_blank">{$info.beian}</a><span></span>
+        </div>
+    </footer><a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    
+    
+</body>
+
+</html>

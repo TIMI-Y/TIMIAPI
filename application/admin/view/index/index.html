@@ -1,0 +1,266 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+<title>默笙后台管理系统</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+<link rel="stylesheet" href="/public/static/assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/public/static/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
+<link rel="stylesheet" href="/public/static/assets/plugins/morrisjs/morris.min.css" />
+<!-- Custom Css -->
+<link rel="stylesheet" href="/public/static/assets/css/main.css">
+<link rel="stylesheet" href="/public/static/assets/css/color_skins.css">
+
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="/public/static/assets/images/logo.png" width="48" height="48" alt="Oreo"></div>
+        <p>请稍后...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html"><img src="/public/static/assets/images/logo.png" width="30" alt="Oreo"><span class="m-l-10">Mosheng</span></a>
+            </div>
+        </li>
+        <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
+       
+       
+            
+        <li class="float-right">
+            <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            <a href="{:url('index/loginout')}" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Mosheng</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>User</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info">
+                            <div class="image"><a href="profile.html"><img src="/public/static/assets/images/profile_av.jpg" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>mosheng</h4>
+                                <small>屌丝</small>                        
+                            </div>
+                            <!-- <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
+                            <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
+                            <a title="instagram" href="#"><i class="zmdi zmdi-instagram"></i></a>   -->                          
+                        </div>
+                    </li>
+                    <li class="header">本站列表</li>
+                    <li> <a href="{:url('index/index')}" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>仪表盘</span></a>
+                        <!-- class="active open" -->
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>API管理</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="{:url('index/addapi')}">新增API</a></li>
+                            <li><a href="{:url('index/apilist')}">API列表</a></li>
+                            <li><a href="{:url('index/madeapi')}">API制作教程</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>系统设置</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="{:url('system/index')}">站点设置</a></li>
+                            <li> <a href="{:url('system/upinfo')}">修改信息</a></li>
+                            <li> <a href="{:url('system/findpwd')}">忘记密码？</a></li>
+                            <li> <a href="https://jq.qq.com/?_wv=1027&k=5Jefzsn" target="_blank">官方QQ群</a></li>
+                        </ul>
+                    </li>
+                    <li class="header">额外功能</li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>系统反馈</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="{:url('other/apineed')}">提交一个API需求</a> </li>
+                           <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3494490&site=qq&menu=yes" target="_blank">向作者提问</a> </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane stretchLeft" id="user">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info m-b-20 p-b-15">
+                            <div class="image"><a href="#"><img src="/public/static/assets/images/profile_av.jpg" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>Mosheng</h4>
+                                <small>PHPer</small>                        
+                            </div>
+                            
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <small class="text-muted">Email address: </small>
+                        <p>asss@tom.com</p>
+                        <hr>
+                        <small class="text-muted">QQ: </small>
+                        <p>3494490</p>
+                        <small class="text-muted">QQ群: </small>
+                        <p>484395502</p>
+                        <hr>
+                                             
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+       
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slim_scroll">
+                        
+                <div class="card">
+                    <h6>皮肤</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple" class="active">
+                            <div class="purple"></div>
+                        </li>                   
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>                    
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>                    
+                        </li>
+                    </ul>                    
+                </div>
+               
+                <div class="card theme-light-dark">
+                    <h6>左侧菜单皮肤</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">浅色</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">黑色</button>
+					<button class="m_img_btn btn btn-primary btn-round btn-block">带图像</button>                    
+                </div>                
+               
+            </div>                
+        </div>       
+        
+        
+    </div>
+</aside>
+
+
+<!-- Main Content -->
+<section class="content home">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+                <h2>仪表盘
+                <small>Welcome to use mosheng</small>
+                </h2>
+            </div>            
+            <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> mosheng</a></li>
+                    <li class="breadcrumb-item active">仪表盘</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+       
+        <div class="row clearfix">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>默笙后台管理系统</strong> -API后台管理 <small>感谢您使用 / 默笙后台管理系统</small> </h2>
+                        
+                    </div>
+                    <div class="body table-responsive members_profiles">
+
+                        <div class="card">
+                    <div class="header">
+                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用说明</font></font><small> </h2>
+                        
+                    </div>
+                    <div class="body">
+                        <a class="btn btn-default btn-round waves-effect" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 使用必看 </font></font></a>
+                        
+                        <div class="collapse" id="collapseExample">
+                            <div class="well"> 本程序在使用过程中，如果您使用<code>额外功能</code>，将会从<code><?php echo $_SERVER['SERVER_NAME'];?></code>该站点向<code>api.tecms.net</code>发送部分请求，但此请求是<code>安全</code>的，作者仅保持接受您所提交<code>表单的数据</code>，在程序使用的过程中，请尽量保持作者的部分版权，尊重原创，如果您有什么疑问或者功能性的需求，请加QQ群：<code>484395502</code>进行反馈和交流。</div>
+                        </div>
+                        <br><br>
+                        <blockquote>
+                            <p class="blockquote blockquote-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                “默笙，为了更好的遇见“<br>
+                                <script>
+                                    now = new Date(),hour = now.getHours()
+                                    if(hour < 6){document.write("凌晨了,要注意休息哦~")}
+                                    else if (hour < 9){document.write("早上好,亲爱的管理大大，天气在下方就可以看到哦~")}
+                                    else if (hour < 12){document.write("工作再忙也要记得吃饭~")}
+                                    else if (hour < 14){document.write("真是午后的惬意时光,要休息一会哦~")}
+                                    else if (hour < 17){document.write("下午好，要打起精神来好好工作了呢")}
+                                    else if (hour < 19){document.write("忙了一天了,下班也要犒劳自己")}
+                                    else if (hour < 22){document.write("晚安，愿每个黑暗的夜都是暗中守护你的天使")}
+                                    else {document.write("晚安，愿每个黑暗的夜都是暗中守护你的天使")}
+                                </script>
+                                </font></font>
+                                <br><br>
+                                <small>
+                                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                                    -  Mosheng
+                                    </font></font>
+                                </small>
+                            </p>
+                        </blockquote>
+                        
+                    </div>
+                </div>
+                       
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- Jquery Core Js --> 
+<script src="/public/static/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
+<script src="/public/static/assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+<script src="/public/static/assets/bundles/mainscripts.bundle.js"></script>
+
+</body>
+</html>
