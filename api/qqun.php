@@ -1,4 +1,7 @@
 <?php
+/*免IDKEY加群
+*Author:消失的彩虹海
+*/
 $countfile = "num.txt";
 
 if (($fp = fopen($countfile, "r+")) == false) { //用读写模式打开文件，若不能打开就退出
